@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Robert Rupa <office@konatsu.pl>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <web>
+            <cookie>
+                <session_timeout_redirect_url>/customer/account/logout/</session_timeout_redirect_url>
+            </cookie>
+        </web>
+    </default>
+</config>

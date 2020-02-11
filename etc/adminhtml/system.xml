@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Robert Rupa <office@konatsu.pl>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="web">
+            <group id="cookie">
+                <label>Default Cookie Settings</label>
+                <field id="session_timeout_redirect_url" translate="label" type="text" sortOrder="15"
+                       showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Session timeout redirect url</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

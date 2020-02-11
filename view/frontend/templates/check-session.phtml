@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author Robert Rupa <office@konatsu.pl>
+ */
+
+
+/**
+ * @var $block /RobertRupa\AutomaticLogout\Block\CheckSession
+ */
+$block->addSessionLifeTimeCookie();
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "RobertRupa_AutomaticLogout/js/CheckSession": {
+                "redirectURL":  "<?= $block->getRedirectUrl() ?>"
+            }
+        }
+    }
+</script>
