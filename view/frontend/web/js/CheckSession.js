@@ -9,10 +9,9 @@ define([
 
     function checkSession(redirectURL) {
         window.setInterval(function(){
-            if( $.cookie('session_lifetime') === null ) {
+            let sessionLifetimeCookie = $.cookie('session_lifetime');
+            if( sessionLifetimeCookie === null ) {
                 window.location.href = redirectURL;
-            } else {
-                console.log("valid");
             }
         }, 5000);
     }
