@@ -3,14 +3,15 @@
  */
 define([
     'jquery',
-    'mage/cookies'
-], function ($, cookies) {
+    'mage/cookies',
+    'Magento_Customer/js/customer-data'
+], function ($, cookies, customerData) {
     'use strict';
 
     function checkSession(redirectURL) {
         window.setInterval(function(){
-            let sessionLifetimeCookie = $.cookie('session_lifetime');
-            if( sessionLifetimeCookie === null ) {
+            let customer = customerData.get('customer');
+            if( $.cookie('session_lifetime') === null && typeof customer().email !== "undefined") {
                 window.location.href = redirectURL;
             }
         }, 5000);

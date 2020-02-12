@@ -12,7 +12,6 @@ use Magento\Framework\Session\Config;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\Stdlib\CookieManagerInterface;
 use Magento\Framework\Stdlib\Cookie\CookieMetadataFactory;
-use Magento\Customer\Model\Session as CustomerSession;
 
 class CheckSession extends Template
 {
@@ -31,10 +30,6 @@ class CheckSession extends Template
      * @var CookieMetadataFactory
      */
     private $cookieMetadataFactory;
-    /**
-     * @var CustomerSession
-     */
-    private $customerSession;
 
     /**
      * CheckSession constructor.
@@ -42,7 +37,6 @@ class CheckSession extends Template
      * @param ScopeConfigInterface $scopeConfig
      * @param CookieManagerInterface $cookieManager
      * @param CookieMetadataFactory $cookieMetadataFactory
-     * @param CustomerSession $customerSession
      * @param array $data
      */
     public function __construct(
@@ -50,7 +44,6 @@ class CheckSession extends Template
         ScopeConfigInterface $scopeConfig,
         CookieManagerInterface $cookieManager,
         CookieMetadataFactory $cookieMetadataFactory,
-        CustomerSession $customerSession,
         array $data = [])
     {
         parent::__construct(
@@ -60,9 +53,8 @@ class CheckSession extends Template
         $this->scopeConfig = $scopeConfig;
         $this->cookieManager = $cookieManager;
         $this->cookieMetadataFactory = $cookieMetadataFactory;
-        $this->customerSession = $customerSession;
     }
-    
+
     /**
      * @throws \Magento\Framework\Exception\InputException
      * @throws \Magento\Framework\Stdlib\Cookie\CookieSizeLimitReachedException
@@ -74,15 +66,14 @@ class CheckSession extends Template
         $metadata = $this->cookieMetadataFactory
             ->createPublicCookieMetadata()
             ->setDuration($lifeTime)
-            ->setPath('/')
-            ->setDomain('/');
+            ->setPath('/');
+            //->setDomain('/');
 
         $this->cookieManager->setPublicCookie(
             self::COOKIE_NAME,
-            (int)$this->customerSession->isLoggedIn(),
+            $lifeTime,
             $metadata
         );
-
     }
 
     /**
