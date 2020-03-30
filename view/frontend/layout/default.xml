@@ -3,7 +3,7 @@
     <body>
         <referenceContainer name="main.content">
             <block class="RobertRupa\AutomaticLogout\Block\CheckSession" name="session-manager"
-                   before="-" template="RobertRupa_AutomaticLogout::check-session.phtml" cacheable="false"/>
+                   before="-" template="RobertRupa_AutomaticLogout::check-session.phtml" cacheable="true"/>
         </referenceContainer>
     </body>
 </page>
