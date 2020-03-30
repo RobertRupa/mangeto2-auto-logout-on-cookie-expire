@@ -87,7 +87,7 @@ class CheckSession extends Template
     /**
      * @return int
      */
-    private function getSessionLifeTime() : int
+    public function getSessionLifeTime() : int
     {
         return ((int)$this->scopeConfig->getValue(Config::XML_PATH_COOKIE_LIFETIME,ScopeInterface::SCOPE_STORE));
     }
