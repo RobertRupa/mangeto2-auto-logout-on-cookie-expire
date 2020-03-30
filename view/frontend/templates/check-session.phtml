@@ -13,7 +13,8 @@ $block->addSessionLifeTimeCookie();
     {
         "*": {
             "RobertRupa_AutomaticLogout/js/CheckSession": {
-                "redirectURL":  "<?= $block->getRedirectUrl() ?>"
+                "redirectURL":  "<?= $block->getRedirectUrl() ?>",
+                "lifeTime":  <?= $block->getSessionLifeTime() ?>
             }
         }
     }
