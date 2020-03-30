@@ -19,5 +19,11 @@ define([
 
     return function (config) {
         checkSession(config.redirectURL);
+        var date = new Date();
+        date.setTime(date.getTime()+config.lifeTime*1000);
+        $.cookie("session_lifetime", 1, {
+            expires : date,
+            path    : '/'
+        });
     }
 });
